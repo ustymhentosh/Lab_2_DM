@@ -4,6 +4,18 @@ member2: <Name Surname>
 """
 from typing import List, Dict
 
+def adjacent_are_defined(graph, j, vertices):
+    for i in graph[j]:
+        if vertices.get(str(i)) is None:
+            return False
+    return True
+
+def not_defined(j, graph, vertices):
+    string = ''
+    for i in graph[j]:
+        if vertices.get(str(i)) is None:
+            string += str(i)
+    return string
 
 def read_csv(file_name: str) -> Dict[int, List[int]]:
     """
@@ -18,7 +30,7 @@ def read_csv(file_name: str) -> Dict[int, List[int]]:
     pass
 
 
-def bfs(graph: Dict[int, List[int]]) -> List[int]:
+def bfs(graph: Dict[int, List[int]]):
     """
     perform bfs on the graph and store its result
     in the list of vertices(integers that represent vertices)
@@ -27,7 +39,25 @@ def bfs(graph: Dict[int, List[int]]) -> List[int]:
     :return: bfs-result
     """
     # Your code goes here(delete "pass" keyword)
-    pass
+    # print(graph)
+    vertices = {}
+    vertices[str(1)] = 1
+    queue = str(1)
+    count = 1
+    edges = []
+    # print(vertices, queue, count)
+    while queue:
+        j = queue[0]
+        while not adjacent_are_defined(graph, int(j), vertices):
+            not_defined_el = not_defined(int(j), graph, vertices)[0]
+            edges.append([queue[0], not_defined_el])
+            vertices[not_defined_el] = count + 1
+            count += 1
+            queue += not_defined_el
+            # print(queue)
+        queue = queue[1:]
+        # print(queue)
+    return [int(i) for i in vertices.keys()]
 
 
 def dfs(graph: Dict[int, List[int]]) -> List[int]:
