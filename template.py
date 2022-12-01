@@ -19,9 +19,9 @@ def read_csv(file_name: str) -> Dict[int, List[int]]:
         dct = {}
         readed = read_file.read()
         lst = readed.split('\n')
-        for vertex in lst:
-            vertex_1 = vertex.split(',')
-            dct['a' + str(lst.index(vertex) + 1)] = ['a' + str(i + 1) for i in range(len(vertex_1)) if vertex_1[i] == '1']
+        for vertex in range(len(lst)):
+            vertex_1 = lst[vertex].split(',')
+            dct[(vertex) + 1] = [i + 1 for i in range(len(vertex_1)) if vertex_1[i] == '1']
         return dct
 
 
