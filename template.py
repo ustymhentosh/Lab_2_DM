@@ -50,7 +50,10 @@ def calc_pow(graph: Dict[int, List[int]]) -> Dict[int, int]:
     :return: vertices and their powers
     """
     # Your code goes here(delete "pass" keyword)
-    pass
+    result = {}
+    for vertex in graph:
+        result[vertex] = len(graph[vertex])
+    return result
 
 
 def find_path(n: int, edges: List[List[int]], source: int, destination: int) -> bool:
