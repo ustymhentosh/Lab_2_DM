@@ -4,13 +4,27 @@ member2: <Name Surname>
 """
 from typing import List, Dict
 
-def adjacent_are_defined(graph, j, vertices):
+def adjacent_are_defined(graph: dict, j: int, vertices: dict):
+    """
+    Decides whether adjacent vertices to j are defined(given numbers)
+    >>> adjacent_are_defined({1: [2, 3], 2: [1], 3:[1]}, 1, {'2': 3, '3': 2})
+    True
+    >>> adjacent_are_defined({1: [2, 3], 2: [1], 3:[1]}, 1, {'2': 3})
+    False
+    """
     for i in graph[j]:
         if vertices.get(str(i)) is None:
             return False
     return True
 
-def not_defined(j, graph, vertices):
+def not_defined(j: int, graph: dict, vertices: dict):
+    """
+    Returns adjacent vertices to j that are not difided(given numbers)
+    >>> not_defined(1, {1: [2, 3], 2: [1], 3:[1]}, {'2': 3})
+    '3'
+    >>> not_defined(1, {1: [2, 3], 2: [1], 3:[1]}, {'2': 3, '3': 2})
+    ''
+    """
     string = ''
     for i in graph[j]:
         if vertices.get(str(i)) is None:
@@ -37,26 +51,28 @@ def bfs(graph: Dict[int, List[int]]):
     :rtype: list(int)
     :param graph: dict(key=int, value=list(int))
     :return: bfs-result
+    >>> bfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []}
+    [1, 2, 4, 3, 5]
+    >>> dfs({1: [], 2: []})
+    [1]
     """
-    # Your code goes here(delete "pass" keyword)
-    # print(graph)
     vertices = {}
     vertices[str(1)] = 1
     queue = str(1)
     count = 1
     edges = []
-    # print(vertices, queue, count)
     while queue:
         j = queue[0]
         while not adjacent_are_defined(graph, int(j), vertices):
+
             not_defined_el = not_defined(int(j), graph, vertices)[0]
             edges.append([queue[0], not_defined_el])
             vertices[not_defined_el] = count + 1
             count += 1
             queue += not_defined_el
-            # print(queue)
+
         queue = queue[1:]
-        # print(queue)
+
     return [int(i) for i in vertices.keys()]
 
 
