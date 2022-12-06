@@ -38,17 +38,17 @@ def dfs(graph: Dict[int, List[int]]) -> List[int]:
     :param graph:  dict(key=int, value=list(int))
     :return: dfs-result
 
-    >>> dfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []}, 1)
+    >>> dfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []})
     [1, 2, 3, 5, 4]
-    >>> dfs({1: [], 2: []}, 1)
+    >>> dfs({1: [], 2: []})
     [1]
     """
     result = []
     visited_points = []
     stack = []
 
-    visited_points.append(graph.keys()[0]) # start with first point
-    stack.append(graph.keys()[0])
+    visited_points.append(list(graph.keys())[0]) # start with first point
+    stack.append(list(graph.keys())[0])
 
     while stack:
         s = stack.pop()
@@ -89,3 +89,6 @@ def find_path(n: int, edges: List[List[int]], source: int, destination: int) -> 
     """
     # Your code goes here(delete "pass" keyword)
     pass
+
+import doctest
+print(doctest.testmod())
