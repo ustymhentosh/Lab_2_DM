@@ -21,7 +21,7 @@ def read_csv(file_name: str) -> Dict[int, List[int]]:
         lst = readed.split('\n')
         for vertex in range(len(lst)):
             vertex_1 = lst[vertex].split(',')
-            dct[(vertex) + 1] = [i + 1 for i in range(len(vertex_1)) if vertex_1[i] == '1']
+            dct[(vertex)] = [i for i in range(len(vertex_1)) if vertex_1[i] == '1']
         return dct
 
 
