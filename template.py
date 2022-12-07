@@ -4,32 +4,6 @@ member2: <Name Surname>
 """
 from typing import List, Dict
 
-def adjacent_are_defined(graph: dict, j: int, vertices: dict):
-    """
-    Decides whether adjacent vertices to j are defined(given numbers)
-    >>> adjacent_are_defined({1: [2, 3], 2: [1], 3:[1]}, 1, {'2': 3, '3': 2})
-    True
-    >>> adjacent_are_defined({1: [2, 3], 2: [1], 3:[1]}, 1, {'2': 3})
-    False
-    """
-    for i in graph[j]:
-        if vertices.get(str(i)) is None:
-            return False
-    return True
-
-def not_defined(j: int, graph: dict, vertices: dict):
-    """
-    Returns adjacent vertices to j that are not difided(given numbers)
-    >>> not_defined(1, {1: [2, 3], 2: [1], 3:[1]}, {'2': 3})
-    '3'
-    >>> not_defined(1, {1: [2, 3], 2: [1], 3:[1]}, {'2': 3, '3': 2})
-    ''
-    """
-    string = ''
-    for i in graph[j]:
-        if vertices.get(str(i)) is None:
-            string += str(i)
-    return string
 
 def read_csv(file_name: str) -> Dict[int, List[int]]:
     """
@@ -53,9 +27,37 @@ def bfs(graph: Dict[int, List[int]]):
     :return: bfs-result
     >>> bfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []}
     [1, 2, 4, 3, 5]
-    >>> dfs({1: [], 2: []})
+    >>> bfs({1: [], 2: []})
     [1]
     """
+    # additional function
+    def adjacent_are_defined(graph: dict, j: int, vertices: dict):
+        """
+        Decides whether adjacent vertices to j are defined(given numbers)
+        >>> adjacent_are_defined({1: [2, 3], 2: [1], 3:[1]}, 1, {'2': 3, '3': 2})
+        True
+        >>> adjacent_are_defined({1: [2, 3], 2: [1], 3:[1]}, 1, {'2': 3})
+        False
+        """
+        for i in graph[j]:
+            if vertices.get(str(i)) is None:
+                return False
+        return True
+    # additional function
+    def not_defined(j: int, graph: dict, vertices: dict):
+        """
+        Returns adjacent vertices to j that are not difided(given numbers)
+        >>> not_defined(1, {1: [2, 3], 2: [1], 3:[1]}, {'2': 3})
+        '3'
+        >>> not_defined(1, {1: [2, 3], 2: [1], 3:[1]}, {'2': 3, '3': 2})
+        ''
+        """
+        string = ''
+        for i in graph[j]:
+            if vertices.get(str(i)) is None:
+                string += str(i)
+        return string
+    
     vertices = {}
     vertices[str(1)] = 1
     queue = str(1)
