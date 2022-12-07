@@ -30,6 +30,7 @@ def bfs(graph: Dict[int, List[int]]):
     >>> bfs({1: [], 2: []})
     [1]
     """
+
     # additional function
     def adjacent_are_defined(graph: dict, j: int, vertices: dict):
         """
@@ -59,8 +60,8 @@ def bfs(graph: Dict[int, List[int]]):
         return string
     
     vertices = {}
-    vertices[str(1)] = 1
-    queue = str(1)
+    vertices[str(list(graph.keys())[0])] = 1
+    queue = str(list(graph.keys())[0])
     count = 1
     edges = []
     while queue:
