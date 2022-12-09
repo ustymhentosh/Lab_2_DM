@@ -1,6 +1,6 @@
 """
-member1: <Name Surname>
-member2: <Name Surname>
+member1: Nataliia Yurevych
+member2: Hentosh Ustym
 """
 from typing import List, Dict
 from collections import defaultdict
@@ -15,7 +15,6 @@ def read_csv(file_name: str) -> Dict[int, List[int]]:
     :param file_name: string
     :return: graph
     """
-    # Your code goes here(delete "pass" keyword)
     with open(file_name, 'r') as read_file:
         dct = {}
         readed = read_file.read()
@@ -38,7 +37,6 @@ def bfs(graph: Dict[int, List[int]]):
     >>> bfs({1: [], 2: []})
     [1]
     """
-
     # additional function
     def adjacent_are_defined(graph: dict, j: int, vertices: dict):
         """
@@ -185,5 +183,5 @@ def find_path(n: int, edges: List[List[int]], source: int, destination: int) -> 
 
     return False
 
-import doctest
-print(doctest.testmod())
+# import doctest
+# print(doctest.testmod())
