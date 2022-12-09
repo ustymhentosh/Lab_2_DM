@@ -125,9 +125,15 @@ def calc_pow(graph: Dict[int, List[int]]) -> Dict[int, int]:
     :rtype: dict(key=int, value=int)
     :param graph: dict(key=int, value=list(int))
     :return: vertices and their powers
+    >>> calc_pow({1: [2, 3], 2: [1, 4], 3: [1, 4], 4:[3, 2]})
+    {1: 2, 2: 2, 3: 2, 4: 2}
+    >>> calc_pow({1: [2], 2: [1, 3], 3: [2]})
+    {1: 1, 2: 2, 3: 1}
     """
-    # Your code goes here(delete "pass" keyword)
-    pass
+    result = {}
+    for vertex in graph:
+        result[vertex] = len(graph[vertex])
+    return result
 
 
 def find_path(n: int, edges: List[List[int]], source: int, destination: int) -> bool:

@@ -60,3 +60,22 @@ Takes three arguments      →         j: int, graph: dict, vertices: dict
 
 > Main function also has possibility to return edges through which the search was made. Just type edges as second thing to return and bob's your uncle(and there it is)
 >
+
+
+### calc_pow()
+
+> calculate power of every vertex of your graph(i.e. number adjacent edges)
+> 
+
+> return type: dict(key=int, value=int)
+param graph: dict(key=int, value=list(int))
+return: vertices and their powers
+> 
+
+```python
+>>> calc_pow({1: [2, 3], 2: [1, 4], 3: [1, 4], 4:[3, 2]})
+    {1: 2, 2: 2, 3: 2, 4: 2}
+>>> calc_pow({1: [2], 2: [1, 3], 3: [2]})
+    {1: 1, 2: 2, 3: 1}
+```
+
