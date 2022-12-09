@@ -15,7 +15,14 @@ def read_csv(file_name: str) -> Dict[int, List[int]]:
     :return: graph
     """
     # Your code goes here(delete "pass" keyword)
-    pass
+    with open(file_name, 'r') as read_file:
+        dct = {}
+        readed = read_file.read()
+        lst = readed.split('\n')
+        for vertex in range(len(lst)):
+            vertex_1 = lst[vertex].split(',')
+            dct[(vertex)] = [i for i in range(len(vertex_1)) if vertex_1[i] == '1']
+        return dct
 
 
 def bfs(graph: Dict[int, List[int]]) -> List[int]:
