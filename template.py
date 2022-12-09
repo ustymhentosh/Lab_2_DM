@@ -3,6 +3,7 @@ member1: <Name Surname>
 member2: <Name Surname>
 """
 from typing import List, Dict
+from collections import defaultdict
 
 
 def read_csv(file_name: str) -> Dict[int, List[int]]:
@@ -73,6 +74,40 @@ def find_path(n: int, edges: List[List[int]], source: int, destination: int) -> 
     :param source: int
     :param destination: int
     :return:
+    >>> find_path(4, [[0, 1], [0, 2]], 3, 0)
+    False
+    >>> find_path(4, [[0, 1], [0, 2]], 3, 3)
+    True
+    >>> find_path(4, [[0, 1], [0, 2]], 1, 2)
+    True
     """
-    # Your code goes here(delete "pass" keyword)
-    pass
+    visited_points = []
+    stack = []
+    graph = defaultdict(list)
+    for pair in edges:
+        if not graph[pair[0]]:
+            graph[pair[0]] = [pair[1]]
+        else:
+            graph[pair[0]] = graph[pair[0]] + [pair[1]]
+        if not graph[pair[1]]:
+            graph[pair[1]] = [pair[0]]
+        else:
+            graph[pair[1]] = graph[pair[1]] + [pair[0]]
+
+    # graph = dict(graph)
+
+    visited_points.append(source) # start with first point
+    stack.append(source)
+
+    while stack:
+        s = stack.pop()
+        if s == destination:
+            return True
+
+        for point in reversed(graph[s]): # reversed to not mix points in stack
+            if point not in visited_points:
+                stack.append(point)
+                if point == destination:
+                    return True
+
+    return False
