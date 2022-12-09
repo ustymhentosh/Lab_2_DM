@@ -1,8 +1,10 @@
 # Lab_2_DM
 
+## work_process
+> From the very beginning, we decided to do the work on Git Hub so that it would be convenient to distribute the work. There was no concrete plan about who would develop which functions. But in the end, Ustym wrote (), and Natalya wrote (). Because there was good documentation written, we could work regardless of what someone else had already written. Over the course of the week, we slowly but surely developed our parts and added the appropriate branches to the git hub. After that, we merged our branches into development, and wrote a report together. Here is the link to the repository - https://github.com/ustymhentosh/Lab_2_DM.git
+>
 
 ### read_csv()
-
 > reads graph represented as matrix in .csv file and return it as dictionary where each key represents a vertex, while the value represent the list of matrices adjacent to the key.
 > 
 
@@ -17,7 +19,6 @@ return: graph
 ```
 
 ### bfs()
-
 > perform breadth-first search on the graph and store its result in the list of vertices(integers that represent vertices)
 > 
 
@@ -37,7 +38,6 @@ return: bfs-result
 > 
 
 **adjacent_are_defined()** - Decides whether adjacent vertices to j are defined(given numbers)
-
 Takes three arguments     →          graph: dict, j: int, vertices: dict
 
 ```python
@@ -48,7 +48,6 @@ Takes three arguments     →          graph: dict, j: int, vertices: dict
 ```
 
 **not_defined()** - Returns adjacent vertices to j that are not defined(given numbers)
-
 Takes three arguments      →         j: int, graph: dict, vertices: dict
 
 ```python
@@ -63,7 +62,6 @@ Takes three arguments      →         j: int, graph: dict, vertices: dict
 
 
 ### calc_pow()
-
 > calculate power of every vertex of your graph(i.e. number adjacent edges)
 > 
 
