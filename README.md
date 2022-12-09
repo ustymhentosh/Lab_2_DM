@@ -1,7 +1,7 @@
 # Lab_2_DM
 
 ## work_process
-> From the very beginning, we decided to do the work on Git Hub so that it would be convenient to distribute the work. There was no concrete plan about who would develop which functions. But in the end, Ustym wrote (), and Natalya wrote (). Because there was good documentation written, we could work regardless of what someone else had already written. Over the course of the week, we slowly but surely developed our parts and added the appropriate branches to the git hub. After that, we merged our branches into development, and wrote a report together. Here is the link to the repository - https://github.com/ustymhentosh/Lab_2_DM.git
+> From the very beginning, we decided to do the work on Git Hub so that it would be convenient to distribute the work. There was no concrete plan about who would develop which functions. But in the end, Ustym wrote read_csv, bfs, calc_pow, and Nataliia wrote dfs and find_path. Because there was good documentation written, we could work regardless of what someone else had already written. Over the course of the week, we slowly but surely developed our parts and added the appropriate branches to the git hub. After that, we merged our branches into development, and wrote a report together. Here is the link to the repository - https://github.com/ustymhentosh/Lab_2_DM.git
 >
 
 ### read_csv()
