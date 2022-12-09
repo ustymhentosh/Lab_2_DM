@@ -33,7 +33,7 @@ def bfs(graph: Dict[int, List[int]]):
     :rtype: list(int)
     :param graph: dict(key=int, value=list(int))
     :return: bfs-result
-    >>> bfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []}
+    >>> bfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []})
     [1, 2, 4, 3, 5]
     >>> bfs({1: [], 2: []})
     [1]
