@@ -182,6 +182,3 @@ def find_path(n: int, edges: List[List[int]], source: int, destination: int) -> 
                     return True
 
     return False
-
-# import doctest
-# print(doctest.testmod())
