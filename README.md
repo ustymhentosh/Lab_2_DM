@@ -60,6 +60,22 @@ Takes three arguments      →         j: int, graph: dict, vertices: dict
 > Main function also has possibility to return edges through which the search was made. Just type edges as second thing to return and bob's your uncle(and there it is)
 >
 
+### dfs()
+> perform dfs on the graph and store its result
+> in the list of vertices(integers that represent vertices)
+>
+
+> return type: list(int)
+param graph:  dict(key=int, value=list(int))
+return: dfs-result
+>
+
+```python
+>>> dfs({1: [2, 4], 2: [3, 5], 3: [], 4: [], 5: []})
+[1, 2, 3, 5, 4]
+>>> dfs({1: [], 2: []})
+[1]
+```
 
 ### calc_pow()
 > calculate power of every vertex of your graph(i.e. number adjacent edges)
@@ -75,5 +91,26 @@ return: vertices and their powers
     {1: 2, 2: 2, 3: 2, 4: 2}
 >>> calc_pow({1: [2], 2: [1, 3], 3: [2]})
     {1: 1, 2: 2, 3: 1}
+```
+
+### find_path()
+> find if there is a way from the source vertex to the destination one
+> 
+
+> return type: bool
+param n: int
+param edges: list(list(int))
+param source: int
+param destination: int
+return: does the path exist or no
+> 
+
+```python
+>>> find_path(4, [[0, 1], [0, 2]], 3, 0)
+False
+>>> find_path(4, [[0, 1], [0, 2]], 3, 3)
+True
+>>> find_path(4, [[0, 1], [0, 2]], 1, 2)
+True
 ```
 
