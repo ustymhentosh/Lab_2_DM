@@ -25,6 +25,7 @@ def read_csv(file_name: str) -> Dict[int, List[int]]:
         return dct
 
 
+
 def bfs(graph: Dict[int, List[int]]):
     """
     perform bfs on the graph and store its result
